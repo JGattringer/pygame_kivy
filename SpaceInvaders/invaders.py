@@ -53,7 +53,7 @@ missilImg = pygame.image.load('missil.png')
 missilX = 0
 missilY = 480  # TENTAR MUDAR PARA ATIRAR DA POSICAO ATUAL DA NAVA
 missilX_change = 0
-missilY_change = 4
+missilY_change = 20
 missil_state = "ready"
 
 # Score
@@ -112,26 +112,26 @@ while running:  # all the permanent remanning code should come inside of the loo
         if event.type == pygame.QUIT:  # event to end loop
             running = False
 
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_RIGHT:
-            playerX_change += 0.5  # speed of pixel moving
-        if event.key == pygame.K_LEFT:
-            playerX_change -= 0.5
-        #if event.key == pygame.K_UP:
-        #    playerY_change -= 0.5
-        #if event.key == pygame.K_DOWN:
-        #    playerY_change += 0.5
-        if event.key == pygame.K_TAB:
-            if missil_state == "ready":  # condition to only made possible shot 1 bullet at time otherwise once
-                missil_sound = mixer.Sound('laser.wav')
-                missil_sound.play()
-                missilX = playerX  # pressed again the bullet would take the actual coordinates of the ship
-                fire_missil(missilX, missilY)
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                playerX_change += 7  # speed of pixel moving
+            if event.key == pygame.K_LEFT:
+                playerX_change -= 7
+            #if event.key == pygame.K_UP:
+            #    playerY_change -= 0.5
+            #if event.key == pygame.K_DOWN:
+            #    playerY_change += 0.5
+            if event.key == pygame.K_TAB:
+                if missil_state == "ready":  # condition to only made possible shot 1 bullet at time otherwise once
+                    missil_sound = mixer.Sound('laser.wav')
+                    missil_sound.play()
+                    missilX = playerX  # pressed again the bullet would take the actual coordinates of the ship
+                    fire_missil(missilX, missilY)
 
-    if event.type == pygame.KEYUP:  # make the space ship stop moving
-        if event.key == pygame.K_RIGHT or pygame.K_LEFT or pygame.K_UP or pygame.K_DOWN:
-            playerX_change = 0
-            playerY_change = 0
+        if event.type == pygame.KEYUP:  # make the space ship stop moving
+            if event.key == pygame.K_RIGHT or event.key == pygame.K_LEFT or event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                playerX_change = 0
+                playerY_change = 0
 
     # checking boundaries of spaceship, and we define the bounderies of our screen
     playerX += playerX_change  # update our player position
