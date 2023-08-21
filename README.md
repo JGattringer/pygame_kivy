@@ -25,7 +25,7 @@ class MyButtonApp(App):
 
 MyButtonApp().run()
 
-```python
+python```
 
 ### 3. Kivy Game App
 - ** File Name **: main.py
