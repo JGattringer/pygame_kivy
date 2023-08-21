@@ -14,19 +14,6 @@ Welcome to the Pygame Kivy Project repository! This project consists of three se
 - **File Name:** `kivy_lab.ipy`
 - **Description:** This file serves as a learning lab for Kivy, an open-source Python library for developing interactive applications. The code includes explanations, code snippets, and exercises to help you understand Kivy's features and concepts. Below is a code snippet from the lab:
 
-```python
-# Kivy Learning Lab Code Snippet
-from kivy.app import App
-from kivy.uix.button import Button
-
-class MyButtonApp(App):
-    def build(self):
-        return Button(text="Hello, Kivy!")
-
-MyButtonApp().run()
-
-python```
-
 ### 3. Kivy Game App
 - ** File Name **: main.py
 - ** Description **: This file contains a Kivy game application. The game, titled "Galaxy," involves navigating a ship through a tunnel-like environment. It showcases Kivy's graphics, animation, and user input handling capabilities. The app includes perspective transformations, audio integration, and gameplay mechanics.
