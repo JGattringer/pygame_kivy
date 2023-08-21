@@ -11,20 +11,20 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600))  # here we define the size of our window
 
 # Background
-background = pygame.image.load('background.png')  # load and created a background var
+background = pygame.image.load('imgs/background.png')  # load and created a background var
 
 # Background Sound
-mixer.music.load('background.wav')
+mixer.music.load('sounds/background.wav')
 mixer.music.play(-1) # we add -1 inside for the musica play on loop
 
 # size of screen must be a tuple
 # changing Tittle and Icon of the game
 pygame.display.set_caption("Space Invaders")
-icon = pygame.image.load('ovni.png')
+icon = pygame.image.load('imgs/ovni.png')
 pygame.display.set_icon(icon)
 
 # Player IMG and starting coordinates (x,y)
-playerImg = pygame.image.load('nave-espacial.png')
+playerImg = pygame.image.load('imgs/nave-espacial.png')
 playerX = 370
 playerY = 480
 playerX_change = 0
@@ -39,7 +39,7 @@ enemyY_change = []
 num_of_enemy = 6
 
 for i in range(num_of_enemy): # loop for create the num of enemies and append to the list
-    enemyImg.append(pygame.image.load('alien.png'))
+    enemyImg.append(pygame.image.load('imgs/alien.png'))
     enemyX.append(random.randint(0, 735))  # use a random gen to create the obj in any part of X and Y that we passas
     enemyY.append(random.randint(10, 10))
     enemyX_change.append(2)
@@ -49,7 +49,7 @@ for i in range(num_of_enemy): # loop for create the num of enemies and append to
 # Fire - missil is current moving
 
 # Missil IMG and starting coordinates (x,y)
-missilImg = pygame.image.load('missil.png')
+missilImg = pygame.image.load('imgs/missil.png')
 missilX = 0
 missilY = 480  # TENTAR MUDAR PARA ATIRAR DA POSICAO ATUAL DA NAVA
 missilX_change = 0
@@ -123,7 +123,7 @@ while running:  # all the permanent remanning code should come inside of the loo
             #    playerY_change += 0.5
             if event.key == pygame.K_TAB:
                 if missil_state == "ready":  # condition to only made possible shot 1 bullet at time otherwise once
-                    missil_sound = mixer.Sound('laser.wav')
+                    missil_sound = mixer.Sound('sounds/laser.wav')
                     missil_sound.play()
                     missilX = playerX  # pressed again the bullet would take the actual coordinates of the ship
                     fire_missil(missilX, missilY)
@@ -172,7 +172,7 @@ while running:  # all the permanent remanning code should come inside of the loo
         # Collision check
         collision = isCollision(enemyX[i], enemyY[i], missilX, missilY)
         if collision:
-            collision_sound = mixer.Sound('explosion.wav')
+            collision_sound = mixer.Sound('sounds/explosion.wav')
             collision_sound.play()
             missilY = 480  # if a collision happen the bullet will be reload and score is up
             missil_state = "ready"
