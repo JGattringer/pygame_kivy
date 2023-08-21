@@ -24,7 +24,8 @@ class MyButtonApp(App):
         return Button(text="Hello, Kivy!")
 
 MyButtonApp().run()
-```
+
+```python
 
 ### 3. Kivy Game App
 - ** File Name **: main.py
